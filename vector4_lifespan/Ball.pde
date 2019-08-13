@@ -5,8 +5,9 @@ class Ball{
   PVector acceleration;
   float mass;
   color c;
-  
-  //constructor
+  int lifespan;
+   
+ //constructor
   Ball(PVector pos){
     location = pos;
     velocity = new PVector(0,0); 

@@ -44,10 +44,6 @@ void draw(){
   fill(0,30);
   noStroke();
   rect(0,0,width,height);
-  
-  fill(255);
-  textSize(12);
-  text("click to add more.", width*3/4,height-30);
 }
 
 
