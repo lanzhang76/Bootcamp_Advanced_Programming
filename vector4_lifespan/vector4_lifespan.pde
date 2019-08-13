@@ -2,7 +2,7 @@
 //Ball ballA = new Ball(); 
 //Ball[] balls = new Ball[10];
 ArrayList<Ball> balls = new ArrayList<Ball>();
-float ballSize = 50;
+float ballSize = 10;
 
 
 void setup(){
@@ -13,17 +13,16 @@ void setup(){
     float x = random(width);
     float y = random(height);
     balls.add(new Ball(new PVector(x,y)));
-    //balls[i] = new Ball();
   }
+
   noCursor();
 }
 
 void draw(){
+  background(0);
   
-  //using single object instantiation
-  //ballA.update();
-  //ballA.display(); // the ballA is drawn with the default values;
-  //ballA.edge();
+  //adding one to the arraylist every frame it runs
+  balls.add(new Ball(new PVector(mouseX+random(-20,20),mouseY+random(-20,20))));
   
   //using ArrayList
   for(int i = 0; i < balls.size(); i ++){
@@ -32,18 +31,16 @@ void draw(){
       b.display();
       b.edge();
       b.colorAdj();
+  } 
+  
+  for (int j = balls.size()-1; j>0; j -- ){
+      Ball b = balls.get(j);  
+      if(b.isDead()){
+        balls.remove(j);    
+      }
   }
-  
-  // using array
-  //for(int i = 0; i < balls.length; i ++){
-  //  balls[i].update();
-  //  balls[i].display();       
-  //  balls[i].edge();
-  //}
-  
-  fill(0,30);
-  noStroke();
-  rect(0,0,width,height);
+   println(balls.size());
+
 }
 
 
@@ -52,6 +49,5 @@ void mousePressed(){
     float x = random(width);
     float y = random(height);
     balls.add(new Ball(new PVector(x,y)));
-    //balls[i] = new Ball();
   }
 }
