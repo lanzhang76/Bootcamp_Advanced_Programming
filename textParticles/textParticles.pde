@@ -55,11 +55,11 @@ void draw(){
     if(dist<=150){
      part.assignLetter("S");
    } else if(dist > range1 && dist <=range2){
-     part.assignLetter("H");
+     part.assignLetter("E");
    } else if (dist > range2 && dist <= range3){
-     part.assignLetter("I");
+     part.assignLetter("A");
    } else {
-     part.assignLetter("T");
+     part.assignLetter("N");
    }
   }
   
